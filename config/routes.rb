@@ -12,5 +12,6 @@ Rails.application.routes.draw do
 
 
   get '/comments', to: 'comments#index'
+  get '/users', to: 'users#index'
   root to: "posts#index"
 end

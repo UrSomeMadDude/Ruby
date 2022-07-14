@@ -1,0 +1,16 @@
+<h2>Followers: <%= current_user.followers.count %> </h2>
+<h2>Following: <%= current_user.following.count %> </h2>
+<ol>
+	<% @users.each do |user| %>
+		<li>
+			<% if user.email == current_user.email %> 
+				<h5> user email: <%= user.email %> (it's you) </h5>
+			<% else %>
+				<h5> 
+					user email: <%= user.email %>
+					<%= link_to 'Options', user_path(user) %> 
+				</h5>
+			<% end %>
+		</li> 
+	<% end %>
+</ol>
