@@ -1,11 +1,12 @@
 class Post < ApplicationRecord
 	has_many :comments, dependent: :destroy
+	has_many :likes, dependent: :destroy
 	belongs_to :user
 
 	after_commit :post_created_email, on: :create
 	after_commit :post_updated_email, on: :update
 
-	def post?(user)
+	def author?(user)
 		user == self.user
 	end
 
