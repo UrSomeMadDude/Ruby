@@ -1,0 +1,39 @@
+<h1>Post</h1>
+
+<div>
+	<%= @post.title %>
+</div>
+
+<div>
+	<%= @post.body %>
+</div>
+
+<div>
+	<%= @post.author%>
+</div>
+
+<h1>Comments</h1>
+<ul>
+	<% @post.comments.each do |comment| %>
+		<li>
+			<%= comment.body %>
+		</li>
+	<% end %>
+</ul>
+
+<%= form_with model: @post.comments.build, url: [@post, @post.comments.build] do |f| %>
+	<div>
+		<%= f.label :body %>
+		<%= f.text_area :body %>
+	</div>
+	<div>
+		<%= f.label :author %>
+		<%= f.text_field :author %>
+	</div>
+	<div>
+		<%= f.submit %>
+	</div>
+<% end %>
+
+
+<%= link_to 'Back', posts_path %>

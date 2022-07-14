@@ -1,0 +1,5 @@
+<ol>
+	<% @comments.each do |comment| %>
+		<li> <%= comment.body %> - <%= comment.post.title %> </li> 
+	<% end %>
+</ol>
